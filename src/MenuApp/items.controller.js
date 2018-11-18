@@ -3,13 +3,12 @@
     angular.module('DataModule')
     .controller('itemDetailController',itemDetailController);
     
-    itemDetailController.$inject=['items'];
+    itemDetailController.$inject=['item'];
     
-    function itemDetailController(items){
-           console.log("work",items);
-    var itemDetails=this;
+    function itemDetailController(item){
+    var $ctrl=this;
         // console.log(items.data[0].name,"DSFSF");
-        itemDetails.item=items;
+        $ctrl.items=item;
     }
     
     })();

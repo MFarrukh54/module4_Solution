@@ -10,23 +10,27 @@
         var service=this;
         
         service.getAllCategories=function(){
-           var response=$http({
+           var promise=$http({
                method:'get',
                url:(ApiBasePath+"categories.json")
            });
-           return response;
+           return promise.then(function (response){
+            return response.data;
+          });
         }
 
         service.getItemsForCategory=function(categoryShortName){
             // console.log("selceindex",categoryShortName);
-            var response=$http({
+            var promise=$http({
                 method:'get',
                 url:(ApiBasePath+"menu_items.json"),
                 params:{
                     category:categoryShortName
                 }
             });
-            return response;
+            return promise.then(function (response){
+                return response.data;
+            });
         };
 
      }

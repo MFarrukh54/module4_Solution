@@ -8,11 +8,16 @@
 
              $urlRouterProvider.otherwise('/home');
 
+             $stateProvider
+             .state('home',{
+                 url:'/home',
+                 templateUrl:'src/MenuApp/Templates/home.template.html'
+             });
             $stateProvider
             .state('categories',{
                 url:'/categories',
           templateUrl:'src/MenuApp/Templates/categoriesList.html',
-              controller:"CategoriesController as categories",
+              controller:"CategoriesController as ctrl",
             
               resolve: {
                 items: ['MenuDataService', function (MenuDataService) {
@@ -24,9 +29,9 @@
             .state('itemDetail', {
                 url: '/item-detail/{itemId}',
                 templateUrl: 'src/MenuApp/Templates/itemList.html',
-              controller: 'itemDetailController as itemDetails',
+              controller: 'itemDetailController as ctrl',
                 resolve: {
-                    items: ['MenuDataService','$stateParams',
+                    item: ['MenuDataService','$stateParams',
                      function (MenuDataService,$stateParams) {
                         return MenuDataService.getItemsForCategory($stateParams.itemId);
                       }]

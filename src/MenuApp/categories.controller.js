@@ -6,8 +6,8 @@ angular.module('DataModule')
 CategoriesController.$inject=['items'];
 
 function CategoriesController(items){
-    var categories=this;
-    categories.items=items.data;
+    var $ctrl=this;
+    $ctrl.list=items;
    
 }
 

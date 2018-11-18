@@ -1,12 +1,13 @@
-<h1>work</h1>
 
-  <div><h1>dsfoisjdfo</h1></div>
-  <ul>
-    <li ng-repeat="item in itemDetails.item"
-     >
-      {{ item.menu_items}}
-    </li>
-  </ul>
-  <items-component items="itemsDetails.item"></items-component>
+<a ui-sref="home">Home</a> &lt;
+<a ui-sref="categories">List Of categories</a> &lt;
+<span> {{ ctrl.items.category.name }} </span>
+<ul>
+  <li ng-repeat="item in ctrl.items.menu_items"
+   >
+   {{item.name}}
+  </li>
+</ul>
+  <items-component items="ctrl.items"></items-component>
   
 <!-- <categories items="itemDetail.items"></categories>  -->
